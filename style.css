@@ -1,0 +1,130 @@
+body {
+    /* Tambahkan efek radial gradient untuk depth */
+    background: radial-gradient(ellipse at top left, #7e57c2 0%, transparent 70%), 
+                linear-gradient(135deg, #5e35b1 0%, #512da8 100%);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+.login-logo {
+    display: block;
+    margin: 0 auto 24px auto;
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 16px #5e35b1aa);
+    border-radius: 18px;
+    background: transparent;
+    transition: transform 0.3s cubic-bezier(.39,.575,.565,1), box-shadow 0.3s;
+    box-shadow: 0 6px 32px 0 rgba(94,53,177,0.18);
+}
+.login-logo:hover {
+    transform: scale(1.07) rotate(-3deg);
+    box-shadow: 0 12px 48px 0 #7e57c2aa;
+}
+.login-title {
+    color: #ede7f6;
+    font-size: 2.2em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 12px #5e35b1aa;
+    text-align: center;
+    text-transform: uppercase;
+}
+.login-container {
+    padding: 24px;
+    background: linear-gradient(120deg, rgba(255,255,255,0.18) 60%, rgba(94,53,177,0.13) 100%);
+    border-radius: 12px;
+    /* Tambahkan border highlight dan shadow lembut */
+    border: 2px solid rgba(255,255,255,0.25);
+    box-shadow: 0 12px 36px 0 rgba(94,53,177,0.22), 0 2px 8px rgba(0,0,0,0.12);
+    backdrop-filter: blur(6px);
+    animation: fadeIn 0.8s cubic-bezier(.39,.575,.565,1) both;
+    min-width: 340px;
+    margin-bottom: 24px;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+.login-container label {
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: inline-block;
+    color: #ede7f6;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(94,53,177,0.10);
+    /* Tambahkan efek gradient pada teks label */
+    background: linear-gradient(90deg, #ede7f6 60%, #b39ddb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.login-label {
+    color: #ede7f6;
+    /* inherit style from .login-container label if needed */
+}
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    font-size: 1.1em;
+    padding: 8px 10px;
+    width: 90%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    /* Tambahkan efek glass dan shadow lebih halus */
+    background: rgba(255,255,255,0.32);
+    color: #ede7f6;
+    box-shadow: 0 2px 8px rgba(94,53,177,0.09);
+    border: 1.5px solid #b39ddb;
+    border-radius: 6px;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    border: 1.5px solid #fff;
+    outline: none;
+    box-shadow: 0 0 10px #b39ddb, 0 1.5px 6px rgba(94,53,177,0.13);
+    background: rgba(255,255,255,0.32);
+}
+.login-container input[type="submit"] {
+    font-size: 1.1em;
+    padding: 8px 20px;
+    margin-top: 8px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #5e35b1 60%, #7e57c2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(94,53,177,0.13);
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    filter: drop-shadow(0 2px 8px #7e57c2aa);
+    /* Tambahkan efek glow saat hover */
+    box-shadow: 0 4px 16px rgba(94,53,177,0.13), 0 0 8px #9575cd44;
+}
+.login-container input[type="submit"]:hover {
+    background: linear-gradient(90deg, #7e57c2 60%, #9575cd 100%);
+    box-shadow: 0 8px 24px rgba(126,87,194,0.18);
+    filter: drop-shadow(0 4px 24px #b39ddbcc);
+}
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Tambahkan sedikit padding atas */
+    padding-top: 6px;
+}

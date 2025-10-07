@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>raska Industries</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .absen-table-container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: rgba(255,255,255,0.07);
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(94,53,177,0.08);
+            padding: 24px;
+            animation: fadeInAbsen 0.8s cubic-bezier(.39,.575,.565,1) both;
+        }
+        @keyframes fadeInAbsen {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.98);
+            }
+            100% {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        .absen-table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #ede7f6;
+            font-size: 1.05em;
+        }
+        .absen-table th, .absen-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #b39ddb55;
+            text-align: center;
+        }
+        .absen-table th {
+            background: linear-gradient(90deg, #5e35b1 60%, #7e57c2 100%);
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .absen-table tr:last-child td {
+            border-bottom: none;
+        }
+        @media (max-width: 600px) {
+            .absen-table-container { padding: 8px; }
+            .absen-table th, .absen-table td { padding: 6px 4px; font-size: 0.95em; }
+        }
+        .logo-top-left {
+            position: absolute;
+            top: 28px;
+            left: 28px;
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 12px;
+            filter: drop-shadow(0 2px 8px #5e35b1aa);
+            background: transparent;
+            z-index: 10;
+        }
+        .logo-title {
+            position: absolute;
+            top: 38px;
+            left: 98px;
+            font-size: 1.35em;
+            color: #ede7f6;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px #5e35b1aa;
+            z-index: 11;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            white-space: nowrap;
+        }
+        @media (max-width: 600px) {
+            .logo-top-left {
+                top: 8px;
+                left: 4px;
+                width: 44px;
+                height: 44px;
+            }
+            .logo-title {
+                top: 14px;
+                left: 56px;
+                font-size: 1em;
+            }
+        }
+        body {
+            position: relative;
+        }
+        .navbar-vertical {
+            position: absolute;
+            top: 100px;
+            left: 24px;
+            width: 160px;
+            background: rgba(94,53,177,0.18);
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(94,53,177,0.10);
+            padding: 18px 0 18px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 9;
+        }
+        .navbar-vertical a {
+            color: #ede7f6;
+            text-decoration: none;
+            padding: 10px 24px;
+            font-size: 1.08em;
+            border-radius: 8px;
+            transition: background 0.18s, color 0.18s;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .navbar-vertical a:hover, .navbar-vertical a.active {
+            background: linear-gradient(90deg, #5e35b1 60%, #7e57c2 100%);
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .navbar-vertical {
+                top: 60px;
+                left: 0;
+                width: 100vw;
+                flex-direction: row;
+                padding: 8px 0;
+                border-radius: 0 0 14px 14px;
+                justify-content: center;
+                gap: 4px;
+            }
+            .navbar-vertical a {
+                padding: 8px 10px;
+                font-size: 0.98em;
+            }
+        }
+        .biodata-container {
+            max-width: 520px;
+            margin: 80px auto 40px auto;
+            background: linear-gradient(120deg, rgba(255,255,255,0.13) 60%, rgba(94,53,177,0.13) 100%);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(94,53,177,0.18), 0 2px 8px rgba(0,0,0,0.10);
+            padding: 40px 36px 32px 36px;
+            color: #ede7f6;
+            animation: fadeInAbsen 0.8s cubic-bezier(.39,.575,.565,1) both;
+            border: 2px solid rgba(255,255,255,0.18);
+            backdrop-filter: blur(4px);
+        }
+        @keyframes fadeInAbsen {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.98);
+            }
+            100% {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        .biodata-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 22px;
+            text-align: center;
+            letter-spacing: 2px;
+            color: #ede7f6;
+            text-shadow: 0 2px 16px #5e35b1aa;
+            position: relative;
+            text-transform: uppercase;
+        }
+        .biodata-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, #5e35b1 60%, #7e57c2 100%);
+            border-radius: 2px;
+        }
+        .biodata-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            margin-bottom: 22px;
+        }
+        .biodata-label {
+            width: 120px;
+            font-weight: 600;
+            color: #b39ddb;
+            background: rgba(94,53,177,0.13);
+            padding: 12px 10px 12px 0;
+            border-radius: 8px 0 0 8px;
+            text-align: right;
+            vertical-align: middle;
+        }
+        .biodata-value {
+            padding: 12px 10px;
+            border-radius: 0 8px 8px 0;
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+            vertical-align: middle;
+        }
+        .biodata-photo-cell {
+            text-align: center;
+            vertical-align: middle;
+            padding-left: 18px;
+        }
+        .biodata-photo {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            object-position: 50% 20%;
+            border-radius: 50%;
+            border: 4px solid #7e57c2;
+            box-shadow: 0 4px 16px rgba(94,53,177,0.18);
+            background: #fff;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .biodata-photo:hover {
+            transform: scale(1.07) rotate(-2deg);
+            box-shadow: 0 8px 32px #7e57c2aa;
+        }
+        .biodata-desc {
+            color: #ede7f6;
+            font-size: 1.08em;
+            line-height: 1.7;
+            text-align: justify;
+            background: rgba(94,53,177,0.13);
+            border-radius: 10px;
+            padding: 16px 18px;
+            margin-top: 10px;
+            box-shadow: 0 1.5px 8px rgba(94,53,177,0.07);
+        }
+        @media (max-width: 600px) {
+            .biodata-container { padding: 14px 4vw; margin: 60px 0 24px 0; }
+            .biodata-title { font-size: 1.2em; }
+            .biodata-table { font-size: 0.95em; }
+            .biodata-label { width: auto; text-align: left; padding: 10px 4px 10px 0; }
+            .biodata-value { padding: 10px 4px; }
+            .biodata-photo-cell { padding-left: 6px; }
+            .biodata-photo {
+                width: 80px;
+                height: 80px;
+                object-position: 50% 20%;
+            }
+        }
+        .welcome-anim {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(94,53,177,0.90);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            font-size: 2.2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 24px #000, 0 2px 8px #7e57c2;
+            animation: fadeOutWelcome 2.5s 1.5s forwards;
+            pointer-events: none;
+        }
+        @keyframes fadeOutWelcome {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+    </style>
+</head>
+<body>
+    <div id="welcome" class="welcome-anim" style="display:none;">Selamat Datang, <span id="nama-user">adeska raska riesfian</span>!</div>
+    <img src="images/ChatGPT Image Oct 7, 2025, 03_56_21 PM.png" alt="Logo" class="logo-top-left" title="Logo Raska">
+    <span class="logo-title">raska industries</span>
+    <nav class="navbar-vertical">
+        <a href="3 index.html" class="active">about you</a>
+        <a href="2 index.html">Laporan Absen</a>
+        <a href="index.html" id="logout-link">log out</a> 
+    </nav>
+    <div class="biodata-container">
+        <div class="biodata-title">Biodata</div>
+        <table class="biodata-table">
+            <tr>
+                <td class="biodata-label">Nama</td>
+                <td class="biodata-value">adeska raska riesfian</td>
+                <td class="biodata-photo-cell" rowspan="3">
+                    <img src="images/WhatsApp Image 2025-10-02 at 14.25.27_93641ba1.jpg" alt="Foto Raska" class="biodata-photo">
+                </td>
+            </tr>
+            <tr>
+                <td class="biodata-label">Status</td>
+                <td class="biodata-value">CEO AND Founder raska industries</td>
+            </tr>
+            <tr>
+                <td class="biodata-label">Email</td>
+                <td class="biodata-value">raska@email.com</td>
+            </tr>
+        </table>
+        <div class="biodata-desc">
+            Adeska Raska Riefian adalah seorang visioner dan pemimpin inovatif yang mendirikan Raska Industries, sebuah perusahaan yang berfokus pada pengembangan teknologi terbarukan dan solusi masa depan. Di bawah kepemimpinan dan visinya, perusahaan ini telah mencapai berbagai pencapaian luar biasa dan terus berkomitmen untuk menciptakan dampak positif melalui teknologi.
+        </div>
+    </div>
+    <script>
+        // Cegah akses ke halaman ini jika belum login
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.replace('index.html');
+        }
+
+        // Tampilkan animasi hanya saat login pertama kali
+        if (!sessionStorage.getItem('welcomeShown')) {
+            document.getElementById('welcome').style.display = 'flex';
+            setTimeout(function(){
+                document.getElementById('welcome').style.display = 'none';
+            }, 4000);
+            sessionStorage.setItem('welcomeShown', 'true');
+        }
+        document.getElementById('nama-user').innerText = "adeska raska riesfian";
+
+        // Logout: hapus session dan redirect
+        document.getElementById('logout-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            sessionStorage.removeItem('isLoggedIn');
+            sessionStorage.removeItem('welcomeShown');
+            window.location.replace('index.html');
+        });
+    </script>
+</body>
+</html>
